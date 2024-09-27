@@ -290,7 +290,7 @@ include(CPack)
 option(BUILD_DOC "Build documentation" ON)
 
 # Check if Doxygen is installed
-find_package(Doxygen)
+find_package(Doxygen OPTIONAL_COMPONENTS dot dia)
 if (DOXYGEN_FOUND)
     set(DOXYGEN_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
     set(DOXYGEN_HTML_OUTPUT docs)
@@ -299,7 +299,7 @@ if (DOXYGEN_FOUND)
     message("Doxygen build started")
 
     doxygen_add_docs(
-            DjInterop_docs
+            docs
             include
             README.md
             COMMENT "Generate docs"
